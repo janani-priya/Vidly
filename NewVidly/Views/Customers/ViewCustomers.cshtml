@@ -1,0 +1,27 @@
+﻿@model NewVidly.ViewModel.RandomMovieViewModel
+@{
+    ViewBag.Title = "ViewCustomers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>View Customers</h2>
+
+<table class=“table table-bordered table-hover”>
+    <thead>Customer List</thead>
+    
+    @if (@Model.Customers.Count == 0)
+    {
+        @Html.DisplayText("No customers found")
+    }
+
+    @foreach (var cmr in @Model.Customers)
+    {
+        <tr>
+        <td>  @Html.ActionLink(@cmr.Name, "Detail", "Customers", new {id=1},null)
+        </td>
+          </tr>
+    }
+
+</table>
